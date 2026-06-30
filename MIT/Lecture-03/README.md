@@ -2,41 +2,94 @@
 
 **Date:** June 30, 2026
 
-## Objective
+---
 
-Understand why naming is one of the most important ideas in computer systems and how names allow abstraction, communication, and organization.
+# 1. The Problem
+
+What problem were engineers trying to solve?
+
+People are bad at remembering numerical IP addresses, while computers require them to communicate. As the Internet grew, engineers needed a way for humans to use simple names while allowing computers to continue using IP addresses.
 
 ---
 
-## Key Ideas
+# 2. The Big Idea
 
-- Systems are resources connected by names.
-- Storage, interpreters, and communication all rely on naming.
-- Names hide complexity through abstraction.
+DNS translates human-friendly names into IP addresses so computers know where to send data.
 
 ---
 
-## Questions
+# 3. How It Works
 
-- Why is DNS hierarchical instead of one giant server?
-- What makes a "good" naming system?
-
----
-
-## My Explanation
-
-Names are important because they make it easier for people and computer systems to navigate information without needing to know every detail underneath. Instead of interacting with the hidden layers directly, we use names that act as references. This makes communication, organization, and abstraction possible.
+(To be completed as we continue reading.)
 
 ---
 
-## Connections
+# 4. Real World Examples
 
+Google can move from one server to another without users knowing.
 
-### Linux
-- Directories are names that point to locations on the file system.
+Yesterday:
 
-### Windows
-- C:\Windows is a name, not a physical location on the SSD.
+google.com → Server A
 
-### TryHackMe
-- SSH uses names (hostnames/IP addresses) to connect to another machine.
+Today:
+
+google.com → Server B
+
+Users still type "google.com."
+
+DNS quietly finds Google's new location.
+
+---
+
+# 5. Tony's Analogy
+
+I imagine the Internet like a giant digital world.
+
+An IP address is like the address of a house.
+
+DNS is like GPS or my phone contacts.
+
+Google may move to another house tomorrow, but I never need to know where it moved because I keep typing "google.com" and DNS finds its new address.
+
+---
+
+# 6. Connections
+
+Linux
+- File paths are names.
+
+Windows
+- C:\Windows is a name.
+
+Networking
+- IP addresses identify destinations.
+
+TryHackMe
+- SSH uses hostnames or IP addresses to reach another machine.
+
+---
+
+# 7. Engineering Insights
+
+### Insight #1
+
+DNS separates identity from location.
+
+Names stay the same.
+
+Locations can change.
+
+---
+
+# 8. Questions
+
+- Why are root servers necessary?
+- Why can't one DNS server handle everything?
+- How does DNS verify that answers are legitimate?
+
+---
+
+# 9. My Explanation
+
+DNS exists because humans are bad at remembering IP addresses. It lets people use names while computers continue communicating with numerical addresses. DNS also allows websites and services to move between servers without users needing to know where they moved.
