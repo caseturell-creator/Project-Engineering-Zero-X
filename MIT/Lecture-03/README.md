@@ -4,7 +4,7 @@
 
 ## Objective
 
-Understand why engineers build systems in layers and what problems abstraction solves.
+Understand why naming is one of the most important ideas in computer systems and how names allow abstraction, communication, and organization.
 
 ---
 
@@ -25,10 +25,18 @@ Understand why engineers build systems in layers and what problems abstraction s
 
 ## My Explanation
 
-(To be filled in after reading.)
+Names are important because they make it easier for people and computer systems to navigate information without needing to know every detail underneath. Instead of interacting with the hidden layers directly, we use names that act as references. This makes communication, organization, and abstraction possible.
 
 ---
 
 ## Connections
 
-(TryHackMe, Linux, Windows, Networking...)
+
+### Linux
+- Directories are names that point to locations on the file system.
+
+### Windows
+- C:\Windows is a name, not a physical location on the SSD.
+
+### TryHackMe
+- SSH uses names (hostnames/IP addresses) to connect to another machine.
