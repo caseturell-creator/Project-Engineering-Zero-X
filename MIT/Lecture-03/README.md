@@ -1,4 +1,4 @@
-# MIT 6.033 - Lecture 3
+# MIT 6.033 - Lecture 3: Naming
 
 **Date:** June 30, 2026
 
@@ -10,13 +10,16 @@ Understand why engineers build systems in layers and what problems abstraction s
 
 ## Key Ideas
 
-(To be filled in.)
+- Systems are resources connected by names.
+- Storage, interpreters, and communication all rely on naming.
+- Names hide complexity through abstraction.
 
 ---
 
 ## Questions
 
--
+- Why is DNS hierarchical instead of one giant server?
+- What makes a "good" naming system?
 
 ---
 
