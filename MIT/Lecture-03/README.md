@@ -20,7 +20,54 @@ DNS translates human-friendly names into IP addresses so computers know where to
 
 # 3. How It Works
 
-(To be completed as we continue reading.)
+
+### Step 1
+
+I type:
+
+google.com
+
+↓
+
+My computer doesn't know where Google is.
+
+It asks a Root DNS Server where to start looking.
+
+---
+
+### Step 2
+
+The Root DNS Server doesn't know Google's IP address.
+
+Instead, it says:
+
+"I know who manages .com."
+
+It sends my computer to the .com name servers.
+
+---
+
+### Step 3
+
+The .com server says:
+
+"I know who is responsible for google.com."
+
+It sends my computer to Google's DNS servers.
+
+---
+
+### Step 4
+
+Google's DNS server replies:
+
+google.com
+
+↓
+
+142.xxx.xxx.xxx
+
+Now my computer knows exactly where Google lives.
 
 ---
 
@@ -42,7 +89,7 @@ DNS quietly finds Google's new location.
 
 ---
 
-# 5. Tony's Analogy
+# 5. My Analogy
 
 I imagine the Internet like a giant digital world.
 
@@ -80,12 +127,17 @@ Names stay the same.
 
 Locations can change.
 
+### Insight #3
+
+A system should never depend on a single component to serve the entire world.
+
+As demand grows, responsibility should be distributed so no single component becomes a bottleneck or a single point of failure.
 ---
 
 # 8. Questions
 
-- Why are root servers necessary?
-- Why can't one DNS server handle everything?
+- Why are root servers necessary? 
+- Why can't one DNS server handle everything? A: As demand grows, responsibility should be distributed so no single component becomes a bottleneck or a single point of failure.
 - How does DNS verify that answers are legitimate?
 
 ---
@@ -93,3 +145,5 @@ Locations can change.
 # 9. My Explanation
 
 DNS exists because humans are bad at remembering IP addresses. It lets people use names while computers continue communicating with numerical addresses. DNS also allows websites and services to move between servers without users needing to know where they moved.
+
+---
