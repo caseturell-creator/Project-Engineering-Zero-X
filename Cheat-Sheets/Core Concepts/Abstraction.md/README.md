@@ -45,3 +45,12 @@ I simply click "Grand Piano" and start playing.
 - Linux
 - Windows
 - Programming
+
+
+---
+
+## Why It Matters
+
+Without abstraction, every programmer would need to understand every hardware detail before building software.
+
+Abstraction allows engineers to solve problems one layer at a time by hiding unnecessary complexity. This makes systems easier to build, maintain, and improve.
