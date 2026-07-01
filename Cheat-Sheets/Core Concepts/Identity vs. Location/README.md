@@ -42,6 +42,11 @@ DNS handles the change behind the scenes.
 
 ---
 
+## Why It Matters
+
+Separating identity from location allows systems to move, expand, or change without affecting the people or software that use them.
+
+This provides flexibility, simplifies maintenance, and allows services to grow without changing how users access them.
 ## Where I've Seen This
 
 - MIT 6.033
