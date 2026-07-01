@@ -44,3 +44,11 @@ Instead of one computer answering every request on Earth, many servers share the
 - DNS
 - Cloud Computing (future)
 - Load Balancing (future)
+
+---
+
+## Why It Matters
+
+Engineers don't build systems only for today's users.
+
+Scalability ensures a system can continue working efficiently as the number of users, devices, or requests grows without requiring the entire system to be rebuilt.
