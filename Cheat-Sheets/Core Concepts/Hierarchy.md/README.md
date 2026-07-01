@@ -68,3 +68,11 @@ The server that hosts Google.
 
 - MIT 6.033
 - DNS
+
+---
+
+## Why It Matters
+
+Hierarchy breaks large, complex systems into smaller, manageable pieces.
+
+By assigning responsibility to different levels, engineers create systems that are easier to understand, maintain, troubleshoot, and scale.
