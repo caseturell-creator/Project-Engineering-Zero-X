@@ -25,3 +25,11 @@ DNS separates identity from location.
 The name stays the same.
 
 The destination can change.
+
+---
+
+## Why It Matters
+
+Names allow humans and computer systems to refer to resources without knowing their physical location or implementation.
+
+Without naming, people would have to remember numerical addresses, and systems would become much harder to organize, navigate, and maintain.
