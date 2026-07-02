@@ -50,3 +50,67 @@ If even one critical resource fails to load, the entire application may stop fun
 For this reason, engineers investigate systems as a collection of connected components rather than assuming a single point of failure.
 
 Understanding how these components interact is the foundation of effective troubleshooting.
+---
+
+---
+
+# 4. Browser Developer Tools
+
+## Overview
+
+Browser Developer Tools (DevTools) are built-in utilities that allow engineers to inspect, analyze, and debug web applications directly within the browser.
+
+Rather than guessing why a webpage behaves a certain way, DevTools provides direct access to the information needed to investigate problems.
+
+Whether you are a web developer, cybersecurity analyst, penetration tester, or IT technician, DevTools is one of the most valuable diagnostic tools available.
+
+---
+
+## Opening DevTools
+
+Google Chrome provides several methods for opening Developer Tools.
+
+### Keyboard Shortcuts
+
+| Operating System | Shortcut |
+|------------------|-----------|
+| Windows / Linux | `F12` |
+| Windows / Linux | `Ctrl + Shift + I` |
+| macOS | `⌥ Option + ⌘ Command + I` |
+
+### Menu Navigation
+
+1. Open Chrome.
+2. Click the three-dot menu.
+3. Select **More Tools**.
+4. Select **Developer Tools**.
+
+---
+
+## Primary DevTools Tabs
+
+Although DevTools contains many panels, this module focuses on the tools most commonly used during web debugging.
+
+| Tab | Purpose |
+|------|----------|
+| Elements | Inspect and modify the HTML and CSS of a webpage. |
+| Console | View JavaScript output, warnings, and errors. |
+| Network | Monitor every request made by the browser. |
+| Sources | View the application's source files and scripts. |
+
+---
+
+## Choosing the Right Tool
+
+Each DevTools tab answers a different type of question.
+
+| Question | DevTools Tab |
+|-----------|--------------|
+| What does the webpage look like internally? | Elements |
+| Are there JavaScript errors? | Console |
+| Which files are loading? | Network |
+| What source code is running? | Sources |
+
+Understanding which tool answers which question is an important part of efficient troubleshooting.
+
+Rather than clicking randomly through DevTools, experienced engineers select the tool that provides the information needed for the current investigation.
