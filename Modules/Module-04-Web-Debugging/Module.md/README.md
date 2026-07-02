@@ -226,3 +226,349 @@ During the TryHackMe investigation, the browser returned:
 - `index-DReG5tR5.js` → **404 Not Found**
 
 Because the required CSS and JavaScript files could not be retrieved, the application never rendered and the browser displayed a blank white page.
+
+---
+---
+
+# 6. The Investigation Process
+
+## Overview
+
+Successful troubleshooting begins with observation, not assumptions.
+
+When an application behaves unexpectedly, the objective is not to immediately find a solution. Instead, the objective is to understand **why** the problem is occurring.
+
+Professional engineers follow a structured investigation process that reduces guesswork and leads to evidence-based conclusions.
+
+This process can be applied to web applications, operating systems, networks, APIs, databases, and cybersecurity investigations.
+
+---
+
+## Investigation Workflow
+
+1. Observe the problem.
+2. Gather evidence.
+3. Form a hypothesis.
+4. Test the hypothesis.
+5. Eliminate incorrect possibilities.
+6. Identify the root cause.
+7. Verify the solution.
+8. Document the findings.
+
+---
+
+## Step 1 — Observe
+
+Begin by describing exactly what is happening.
+
+Examples:
+
+- The webpage is completely blank.
+- Images fail to load.
+- A button does not respond.
+- A login request fails.
+
+Avoid making assumptions during this stage.
+
+Record only what can be directly observed.
+
+---
+
+## Step 2 — Gather Evidence
+
+Use available tools to collect information.
+
+Examples include:
+
+- Browser Developer Tools
+- Console messages
+- Network requests
+- HTTP status codes
+- Server responses
+- Application logs
+
+Evidence should always take priority over assumptions.
+
+---
+
+## Step 3 — Form a Hypothesis
+
+Based on the available evidence, develop one or more possible explanations.
+
+Example:
+
+> "The application may not be loading because a required JavaScript file is missing."
+
+A hypothesis is not a conclusion.
+
+It is simply a possible explanation that must be tested.
+
+---
+
+## Step 4 — Test the Hypothesis
+
+Perform actions that either support or reject the hypothesis.
+
+Examples:
+
+- Refresh the page.
+- Inspect network requests.
+- Check the Console.
+- Verify resource loading.
+- Compare expected and actual behavior.
+
+Every test should provide additional evidence.
+
+---
+
+## Step 5 — Eliminate Possibilities
+
+As evidence is collected, remove explanations that are no longer supported.
+
+Example:
+
+- Internet connection is working.
+- Server responds with HTTP 200.
+- HTML loads successfully.
+
+These observations eliminate several possible causes.
+
+---
+
+## Step 6 — Identify the Root Cause
+
+The root cause is the underlying issue responsible for the observed behavior.
+
+In many cases, the visible symptom is only the final result of another failure occurring earlier in the process.
+
+---
+
+## Step 7 — Verify the Solution
+
+After applying a fix, confirm that:
+
+- The original problem is resolved.
+- No additional issues have been introduced.
+- The expected behavior has returned.
+
+---
+
+## Step 8 — Document the Findings
+
+A complete investigation should always end with documentation.
+
+Record:
+
+- The problem.
+- The investigation process.
+- Evidence collected.
+- Root cause.
+- Resolution.
+- Lessons learned.
+
+Documentation allows future investigations to be completed more quickly and consistently.
+
+---
+
+## Engineering Principle
+
+> Never troubleshoot by guessing.
+
+> Observe.
+>
+> Gather evidence.
+>
+> Test.
+>
+> Conclude.
+
+Following this process consistently produces more reliable results than relying on intuition alone.
+
+---
+
+---
+
+# 7. Case Study - Debugging a Blank Web Application
+
+## Objective
+
+The purpose of this case study is to demonstrate how a structured investigation can identify the root cause of a web application failure.
+
+Unlike theoretical examples, this investigation documents a real debugging session performed during a TryHackMe exercise.
+
+---
+
+## The Problem
+
+After launching the provided Static Site, the browser displayed a completely blank white page.
+
+There were:
+
+- No visible error messages
+- No loading indicator
+- No application content
+
+At first glance, it was impossible to determine whether the issue originated from:
+
+- The browser
+- The user's computer
+- The web application
+- The server
+- The TryHackMe lab
+
+---
+
+## Initial Observation
+
+The only confirmed symptom was:
+
+> The webpage was completely blank.
+
+At this stage, no assumptions were made regarding the cause.
+
+---
+
+## Investigation
+
+### Step 1
+
+Open Browser Developer Tools.
+
+The Console was inspected first.
+
+Result:
+
+- No critical JavaScript exceptions were immediately visible.
+- Several warnings appeared, but none explained the blank page.
+
+Conclusion:
+
+The Console alone did not identify the problem.
+
+---
+
+### Step 2
+
+Inspect the Network tab.
+
+The webpage was refreshed while monitoring all requests.
+
+Initial observations:
+
+- Multiple requests returned HTTP 200.
+- The main document loaded successfully.
+
+Conclusion:
+
+The server was responding correctly.
+
+---
+
+### Step 3
+
+Inspect the page source.
+
+Viewing the HTML source revealed:
+
+- A root application container.
+- References to external CSS.
+- References to external JavaScript.
+
+This indicated that the webpage depended on JavaScript to render its content.
+
+---
+
+### Step 4
+
+Continue investigating the Network tab.
+
+Further inspection revealed two failed requests.
+
+The browser attempted to download:
+
+- CSS
+- JavaScript
+
+Both returned:
+
+**404 Not Found**
+
+---
+
+## Root Cause
+
+The browser successfully downloaded the HTML document.
+
+However, the required CSS and JavaScript files were unavailable.
+
+Without the JavaScript bundle, the application could not initialize.
+
+As a result, nothing was rendered to the screen, producing a completely blank webpage.
+
+---
+
+## Resolution
+
+The investigation determined that the issue was not caused by:
+
+- Browser configuration
+- Browser cache
+- Internet connectivity
+- User error
+
+The evidence indicated that the required application assets were unavailable.
+
+The issue was documented and prepared for reporting to the platform.
+
+---
+
+## Lessons Learned
+
+This investigation demonstrated several important engineering principles.
+
+- Symptoms are not root causes.
+- Evidence is more reliable than assumptions.
+- Browser Developer Tools provide critical diagnostic information.
+- A blank webpage does not necessarily indicate a browser failure.
+- Modern web applications depend on multiple interconnected resources.
+
+Most importantly:
+
+A structured investigation produces better results than guessing.
+
+---
+
+---
+
+# 8. Module Summary
+
+This module introduced the fundamentals of debugging modern web applications using browser developer tools.
+
+Topics covered included:
+
+- Browser Developer Tools
+- Browser compatibility
+- The investigation process
+- HTTP status codes
+- Structured troubleshooting
+- Root cause analysis
+- Real-world debugging techniques
+
+Rather than memorizing solutions, the objective of this module was to develop a repeatable engineering methodology that can be applied across many technical disciplines.
+
+---
+
+# Key Takeaways
+
+- Observe before acting.
+- Gather evidence before forming conclusions.
+- Use Developer Tools to investigate rather than guess.
+- Understand what HTTP status codes communicate.
+- Verify assumptions through testing.
+- Document investigations for future reference.
+- Focus on identifying the root cause rather than treating symptoms.
+
+---
+
+# End of Module
+
