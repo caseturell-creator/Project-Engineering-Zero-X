@@ -114,3 +114,64 @@ Each DevTools tab answers a different type of question.
 Understanding which tool answers which question is an important part of efficient troubleshooting.
 
 Rather than clicking randomly through DevTools, experienced engineers select the tool that provides the information needed for the current investigation.
+
+---
+
+---
+
+# 5. Browser Compatibility
+
+## Overview
+
+Although this module uses **Google Chrome** for demonstrations, the concepts presented apply to all modern web browsers.
+
+Every major browser includes built-in developer tools that allow engineers to inspect webpages, monitor network activity, analyze application behavior, and diagnose problems.
+
+While the layout and terminology may vary slightly between browsers, the investigative process remains the same.
+
+---
+
+## Common Browsers
+
+| Browser | Developer Tools |
+|----------|-----------------|
+| Google Chrome | Chrome DevTools |
+| Microsoft Edge | Edge DevTools |
+| Mozilla Firefox | Firefox Developer Tools |
+| Brave | Brave DevTools |
+| Opera | Opera DevTools |
+| Safari | Safari Web Inspector |
+
+---
+
+## Core Functionality
+
+Regardless of the browser being used, developer tools generally provide access to:
+
+- HTML inspection
+- CSS inspection
+- JavaScript debugging
+- Network monitoring
+- Performance analysis
+- Storage and cookies
+- Application resources
+
+The names and appearance of these tools may differ, but their purpose remains consistent.
+
+---
+
+## Why Chrome?
+
+Google Chrome is used throughout this module because it is one of the most widely adopted browsers in web development, cybersecurity, and penetration testing.
+
+Many educational platforms, documentation, and security tools assume the use of Chrome or another Chromium-based browser.
+
+Learning Chrome DevTools provides a strong foundation that can easily be transferred to other browsers.
+
+---
+
+## Key Takeaway
+
+The goal is not to learn one browser.
+
+The goal is to develop a repeatable debugging process that can be applied regardless of which browser is available.
