@@ -175,3 +175,54 @@ Learning Chrome DevTools provides a strong foundation that can easily be transfe
 The goal is not to learn one browser.
 
 The goal is to develop a repeatable debugging process that can be applied regardless of which browser is available.
+
+---
+
+---
+
+# HTTP Status Codes Reference
+
+| Status Code | Meaning | Should You Be Concerned? | Common Causes |
+|--------------|---------|--------------------------|---------------|
+| 100-199 | Informational | No | Request is still being processed. |
+| 200 OK | Request completed successfully. | No | Normal operation. |
+| 201 Created | A new resource was created. | No | Successful POST request. |
+| 204 No Content | Request succeeded with nothing to return. | No | Normal for some APIs. |
+| 301 Moved Permanently | Resource has a new permanent location. | Usually No | URL changed. |
+| 302 Found | Temporary redirect. | Usually No | Login redirects, temporary routing. |
+| 304 Not Modified | Browser uses cached version. | No | Cache optimization. |
+| 400 Bad Request | Invalid request sent by client. | Yes | Malformed URL or request. |
+| 401 Unauthorized | Authentication required. | Yes | Login required or missing credentials. |
+| 403 Forbidden | Access denied. | Yes | Permission issue. |
+| 404 Not Found | Requested resource does not exist. | Yes | Missing page, CSS, JavaScript, image, or API endpoint. |
+| 405 Method Not Allowed | Incorrect HTTP method used. | Yes | Using POST instead of GET (or vice versa). |
+| 408 Request Timeout | Server waited too long. | Sometimes | Slow connection or server delay. |
+| 429 Too Many Requests | Rate limit exceeded. | Yes | Too many requests in a short period. |
+| 500 Internal Server Error | Server encountered an unexpected error. | Yes | Server-side bug. |
+| 502 Bad Gateway | Invalid response from another server. | Yes | Reverse proxy or upstream server failure. |
+| 503 Service Unavailable | Service temporarily unavailable. | Yes | Maintenance or overloaded server. |
+| 504 Gateway Timeout | Upstream server failed to respond. | Yes | Network or backend timeout. |
+
+---
+
+## Quick Rule
+
+| If You See... | Think... |
+|---------------|----------|
+| 200 | Resource loaded successfully. |
+| 304 | Browser is using a cached copy. |
+| 404 | The browser cannot find the requested resource. |
+| 403 | The server knows who you are but will not allow access. |
+| 500 | The server itself has failed. |
+| 503 | The service is temporarily unavailable. |
+
+---
+
+## Case Study
+
+During the TryHackMe investigation, the browser returned:
+
+- `index-D3Qnehzi.css` → **404 Not Found**
+- `index-DReG5tR5.js` → **404 Not Found**
+
+Because the required CSS and JavaScript files could not be retrieved, the application never rendered and the browser displayed a blank white page.
