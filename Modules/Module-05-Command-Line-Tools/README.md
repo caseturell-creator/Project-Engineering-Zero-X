@@ -1,186 +1,102 @@
-# Command-Line Programs and Subcommands
+# Module 05 - Command-Line Tools
 
 ## Overview
 
-One of the biggest realizations when learning cybersecurity is that many command-line tools don't perform an action simply because you typed their name.
+Command-line tools are the foundation of cybersecurity.
 
-Typing a program's name only launches the program. You must usually tell it **what job to perform** by providing a subcommand.
+Whether you're administering Linux systems, automating tasks with PowerShell, scanning networks, enumerating web applications, or exploiting vulnerabilities, nearly every workflow begins in a terminal.
 
-Understanding this pattern makes learning new tools much easier because thousands of Linux utilities follow the same design.
+This module focuses on understanding how command-line programs work rather than simply memorizing commands. The goal is to build transferable knowledge that applies across hundreds of tools.
 
 ---
 
-## The General Pattern
+## Learning Objectives
 
-Every command generally follows this structure:
+By the end of this module, I should be able to:
+
+- Understand the structure of command-line programs.
+- Read and interpret command syntax.
+- Distinguish between programs, subcommands, flags, and arguments.
+- Read and use built-in help menus.
+- Troubleshoot command-line errors logically.
+- Recognize common command-line patterns shared by many tools.
+- Become comfortable learning unfamiliar CLI applications.
+
+---
+
+## Why This Matters
+
+Most professional cybersecurity tools are command-line based.
+
+Examples include:
+
+- Nmap
+- Gobuster
+- Hydra
+- John the Ripper
+- Hashcat
+- Metasploit
+- Netcat
+- Git
+- Docker
+- PowerShell
+- SSH
+- Bash
+
+Although each tool has different capabilities, they often follow very similar command structures.
+
+Learning the underlying patterns makes new tools much easier to learn.
+
+---
+
+## Core Concepts
+
+This module covers topics such as:
+
+- Command syntax
+- Programs vs. subcommands
+- Flags and options
+- Positional arguments
+- Help menus
+- Troubleshooting syntax errors
+- Understanding command output
+- Reading documentation
+- Common CLI conventions
+
+---
+
+## Philosophy
+
+The objective is not to memorize commands.
+
+The objective is to understand how command-line applications are designed.
+
+Once the design becomes familiar, learning a new tool becomes an exercise in exploration rather than memorization.
+
+---
+
+## Module Structure
 
 ```text
-program subcommand options arguments
+Module-05-Command-Line-Tools/
+│
+├── README.md
+├── Command_Syntax/
+├── Reading_Help_Menus/
+├── Troubleshooting_CLI_Commands/
+├── Gobuster/
+├── Linux_CLI/
+├── PowerShell/
+└── Resources/
 ```
 
-Example:
-
-```bash
-git clone
-git status
-git push
-```
-
-Here:
-
-- `git` is the program.
-- `clone`, `status`, and `push` are subcommands that tell Git what job to perform.
-
----
-
-## Gobuster Example
-
-### Incorrect
-
-```bash
-gobuster
-```
-
-Result:
-
-The help menu is displayed because Gobuster doesn't know what task you want it to perform.
-
-It is essentially asking:
-
-> "Which mode would you like to use?"
-
----
-
-## Gobuster Modes
-
-### Directory Enumeration
-
-```bash
-gobuster dir
-```
-
-Searches for hidden directories and files.
-
-### DNS Enumeration
-
-```bash
-gobuster dns
-```
-
-Searches for subdomains.
-
-Each mode performs a completely different task.
-
----
-
-## Running a Directory Scan
-
-Long syntax:
-
-```bash
-gobuster dir --url http://www.onlineshop.thm/ -w /usr/share/wordlists/dirbuster/directory-list.txt
-```
-
-Short syntax:
-
-```bash
-gobuster dir -u http://www.onlineshop.thm/ -w /usr/share/wordlists/dirbuster/directory-list.txt
-```
-
-Breaking it down:
-
-| Part | Purpose |
-|------|---------|
-| `gobuster` | Launches the Gobuster program |
-| `dir` | Selects directory enumeration mode |
-| `-u` / `--url` | Specifies the target website |
-| `-w` / `--wordlist` | Specifies the wordlist to use |
-
----
-
-## Why the Help Menu Appears
-
-If Gobuster doesn't receive enough information to determine which task to perform, it displays the help page instead of running.
-
-This is normal behavior.
-
-The help page is not an error.
-
-It is documentation explaining how to use the tool.
-
----
-
-## Mental Model
-
-Think of the command as a sentence.
-
-```text
-Gobuster,
-use directory mode,
-scan this website,
-using this wordlist.
-```
-
-Each piece contributes one part of the instruction.
-
----
-
-## This Pattern Exists Everywhere
-
-### Git
-
-```bash
-git clone
-git pull
-git push
-```
-
-### Docker
-
-```bash
-docker run
-docker build
-docker ps
-```
-
-### Systemctl
-
-```bash
-systemctl start
-systemctl stop
-systemctl restart
-```
-
-### Gobuster
-
-```bash
-gobuster dir
-gobuster dns
-```
-
-Learning this pattern makes it much easier to pick up new command-line tools.
+As new command-line tools are introduced throughout Project Zero, they will be added to this module.
 
 ---
 
 ## Key Takeaways
 
-- Typing only the program name usually does **not** execute a task.
-- Many CLI tools organize functionality into **subcommands**.
-- Options (flags) modify how the selected subcommand behaves.
-- A help menu usually means the command syntax is incomplete, not that the program is broken.
-
----
-
-## Personal Insight
-
-This was the point where I stopped memorizing Gobuster commands and started recognizing a universal CLI pattern.
-
-Instead of thinking:
-
-> "I need to memorize Gobuster."
-
-I now think:
-
-> "Every command-line program has a program name, a job (subcommand), and options."
-
-That mental model transfers directly to Git, Docker, PowerShell, Nmap, Metasploit, Kubernetes, and countless other command-line tools.
+- The terminal is one of the most important interfaces in cybersecurity.
+- Most command-line tools follow similar design patterns.
+- Understanding the structure of commands is more valuable than memorizing them.
+- Strong troubleshooting skills come from understanding how CLI programs are built and how they communicate with the user.
