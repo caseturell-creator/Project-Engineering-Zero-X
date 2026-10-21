@@ -92,12 +92,3 @@ These two months were about building, not just studying.
 KAGOME forced me to troubleshoot real problems: windows, permissions, `PATH`, outdated packages, and downloads I had to verify.
 
 The agent phase taught me that results matter more than reports.
-
----
-
-# Tomorrow
-
-- Document SOC Level 1 investigations.
-- Continue the Security Engineering path.
-- Start the SOC Automation Engine.
-- Keep this journal updated.
