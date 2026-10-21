@@ -177,29 +177,6 @@ Everything lives in `~/.config/kagome/`. Every change starts with a backup of th
 
 ---
 
-## Visual Identity
-
-The design went through several versions:
-
-1. Orange/red "Battle Analyzer" theme on the normal Ubuntu desktop.
-2. Cyan/orange holographic "door of truth" wallpaper.
-3. Current: black-and-white gothic wallpaper with hand-drawn lettering, and a red, grey, and purple theme.
-
-The wallpaper lettering is drawn as custom shapes, not a font. Every other letter is flipped upside down.
-
-![KAGOME wallpaper](assets/kagome-wallpaper.png)
-
-| Colour | Use |
-|--------|-----|
-| `#b3122e` | Focus: active window border, current workspace |
-| `#e0213f` | Warnings only: low battery, high temperature |
-| `#4a2f6b` / `#9b7bd0` | Structure: unfocused borders, stat readings |
-| `#c9c4c8` / `#6f6872` | Text and muted labels |
-
-Red only appears on things that need attention, so a red number actually means something.
-
----
-
 ## Problems Solved
 
 ### Problem 1 - Alt+Tab Could Not Raise Floating Windows
