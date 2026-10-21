@@ -51,7 +51,7 @@ OpenHands Agent SDK
 |-----------|--------------|
 | `memory.sqlite3` | Persistent memory database |
 | Session module | Keeps completed exchanges, archives older ones as unverified history, and manages context size |
-| REA MCP server | Reverse-engineering tools (Ghidra-based) integrated into the agent |
+| REA MCP server | Reverse-engineering tools integrated into the agent |
 | OpenAI Codex CLI | Engineering agent used to write and modify the agent's code |
 
 ## What Worked
@@ -64,7 +64,7 @@ OpenHands Agent SDK
 
 - Reliable independent completion of complex tasks was never established.
 - A reverse-engineering challenge on `/usr/bin/sha256sum` remained unverified.
-- 42 regression test cases were reported passing, but real tasks still failed.
+- 42 regression test cases were reported passing, but independent completion of complex tasks was never established.
 
 ---
 
@@ -73,8 +73,8 @@ OpenHands Agent SDK
 | Bottleneck | What I saw | What I did |
 |------------|------------|------------|
 | Hardware | An offline terminal response took **198 seconds** | Switched to network-first: cloud reasoning by default, offline only for basic tasks |
-| Building everything from scratch | Slow progress and fragile custom code | Reused established tools: OpenHands, Hyprland, Waybar, mpv |
-| Context limits | Small context window filled up quickly | Built a session module to archive older exchanges and manage context size |
+| Building everything from scratch | Rebuilding systems that already exist | Chose to reuse established open-source tools: OpenHands, Hyprland, Waybar, mpv |
+| Context limits | A 4,096-token context limit | Built a session module to archive older exchanges and manage context size |
 | Incremental fixes | Many small patches without the real goal getting closer | Stopped judging progress by reports and judged it by real task completion |
 | Cost | No paid model API key | Looked for free options, then used Claude Code as my main agent instead of forcing my own agent to do everything |
 | Outdated packages | Ubuntu's `yt-dlp` was 7 months old and YouTube rejected it | Installed current official releases, verified with SHA256 checksums |
@@ -105,7 +105,7 @@ The 198-second response showed this hardware could not support it, so I correcte
 
 ### A passing test on the wrong thing
 
-While building the video window, a test showed `yt-dlp` could fetch video information, so YouTube seemed fine.
+While building the video window, a test reported that `yt-dlp` could get a playable stream, so YouTube seemed fine.
 
 Actual playback still failed with `HTTP 403`. Only testing the real action exposed the problem.
 
@@ -121,7 +121,7 @@ It failed because `sudo` needs a real terminal to ask for a password, and that p
 
 ### Holding the agent to my rules
 
-When an agent wanted to reuse a shortcut that was already taken, I made it check existing binds first and pick a free key, instead of silently overwriting one.
+I required the agent to check existing shortcuts before adding new ones. It found that Super+P, which I had asked for, was already used for pseudo-tiling, so I picked Super+O instead of overwriting it.
 
 I also set rules that agents had to follow every time:
 
@@ -166,14 +166,14 @@ One palette file in theme/ that every component reads from
 | Component | What it does |
 |-----------|--------------|
 | Hyprland | Wayland compositor. Draws windows, borders, animations, and handles every keybind. |
-| Waybar | Top bar with workspaces, clock, CPU, RAM, temperature, volume, and battery. |
+| Waybar | Top bar with workspaces, clock, CPU, RAM, temperature, network, volume, and battery. |
 | Command centre | GTK4 layer-shell panel with live gauges, an event log, a process killer, and quick actions. |
 | foot | Terminal, with a floating zoom-in mode and a slide-down console (Super+`). |
 | Feedback daemon | Background process that confirms actions with pop-ups (copy/paste, volume, Wi-Fi, battery warnings). |
 | The Screen | Small floating window that loops animations or plays YouTube on demand. |
-| Theme system | One palette file. A script generates each program's colours from it. |
+| Theme system | One palette file in `theme/` that components read from. A script generates the terminal's colours from it. |
 
-Everything lives in `~/.config/kagome/`, with automatic backups before every change.
+Everything lives in `~/.config/kagome/`. Every change starts with a backup of the files being edited.
 
 ---
 
@@ -226,7 +226,7 @@ Red only appears on things that need attention, so a red number actually means s
 
 ### Problem 3 - YouTube Rejected the Stream (HTTP 403)
 
-**Symptom:** Video information loaded, but playback failed with `HTTP 403`.
+**Symptom:** A test reported a playable stream, but actual playback failed with `HTTP 403`.
 
 **Investigation:**
 
@@ -245,17 +245,17 @@ A checksum is a fingerprint of the file. If it matches what the developer publis
 
 ---
 
-### Problem 4 - The Fixed Tools Were Not Found
+### Design Decision - Full Paths Instead of PATH
 
-**Symptom:** The session could still pick up the old `yt-dlp`.
+**Situation:** The new `yt-dlp` and `deno` were installed in `~/.local/bin`, but the KAGOME session's `PATH` does not include that folder.
 
-**Root cause:** The session's `PATH` did not include `~/.local/bin`.
+**Risk:** Without a fix, the Screen could use the old `yt-dlp`, or fail to find the new tools at all.
 
-**Fix:** The Screen passes both tools to `mpv` by full path, so it never depends on `PATH`.
+**Decision:** The Screen passes both tools to `mpv` by full path, so it never depends on `PATH`.
 
 ---
 
-### Problem 5 - Terminal Ignored the Theme
+### Problem 4 - Terminal Ignored the Theme
 
 **Symptom:** After the retheme, the terminal kept its old colours.
 
@@ -265,7 +265,7 @@ A checksum is a fingerprint of the file. If it matches what the developer publis
 
 ---
 
-### Problem 6 - Unwanted Notifications
+### Problem 5 - Unwanted Notifications
 
 **Symptom:** Every Super+Y would have triggered a "Moved to workspace" pop-up.
 
