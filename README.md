@@ -26,6 +26,13 @@ Transform from someone who can follow instructions into an engineer who understa
 - **Engineering-Principles** – Core concepts and ways of thinking
 - **Journal** – Daily engineering log and reflections
 
+## Highlights
+
+- **TryHackMe SOC Level 1:** [Completed](TryHackMe/SOC-Level-1/README.md)
+- **TryHackMe Security Engineering:** In progress
+- **KAGOME:** [AI agent turned custom desktop environment](Projects/KAGOME/README.md)
+- **Windows Recovery:** [Boot failure case study](02-Windows/Case-Studies/Windows-Recovery/README.md)
+
 ## Philosophy
 
 Every concept should answer three questions:
